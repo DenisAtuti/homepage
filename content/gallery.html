@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dennis Atuti</title>
+	<link rel="icon"  href="image/icon.png">
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.imageContainer{
+			text-align: center;
+		}
+		.imageContainer img{
+			height: 300px;
+			width: auto;
+			cursor: pointer;
+		}
+		#myImg:hover {
+			opacity: 0.7;
+		}
+		
+		#back{
+			height: 80px;
+			border: 2px solid black;
+			background:rgb(66, 66, 66,0.1);
+			border-radius: 50%;
+			width: auto;
+			position: fixed;
+			bottom: 5%;
+			left: 3%;
+		}
+		/*#back:hover{
+			background: #009688;
+			opacity: 1.0;
+		}*/
+		a:hover #back{
+			background: #009688;
+			opacity: 1.0;
+			/*-webkit-animation-name: zoom;*/
+		    -webkit-animation-duration: 0.45s;
+		    /*animation-name: zoom;*/
+		    animation-duration: 0.45s;
+		}
+		
+		.modal {
+		    display: none; /* Hidden by default */
+		    position: fixed; /* Stay in place */
+		    z-index: 1; /* Sit on top */
+		    padding-top: 20px; /* Location of the box */
+		    left: 0;
+		    top: 0;
+		    width: 100%; /* Full width */
+		    height: 100%; /* Full height */
+		    overflow: auto; /* Enable scroll if needed */
+		    background-color: rgb(0,0,0); /* Fallback color */
+		    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+		.modal-content {
+		    margin: auto;
+		    display: block;
+		    height: 100%;
+		    width: auto;
+
+		}
+		/* The Close Button */
+		.close {
+		    position: absolute;
+		    top: 15px;
+		    right: 35px;
+		    color: #f1f1f1;
+		    font-size: 40px;
+		    font-weight: bold;
+		    transition: 0.3s;
+		}
+		/* Add Animation */
+		.modal-content {    
+		    -webkit-animation-name: zoom;
+		    -webkit-animation-duration: 0.6s;
+		    animation-name: zoom;
+		    animation-duration: 0.6s;
+		}
+
+		@-webkit-keyframes zoom {
+		    from {-webkit-transform:scale(0)} 
+		    to {-webkit-transform:scale(1)}
+		}
+
+		@keyframes zoom {
+		    from {transform:scale(0)} 
+		    to {transform:scale(1)}
+		}
+		.close:hover,
+		.close:focus {
+		    color: #bbb;
+		    text-decoration: none;
+		    cursor: pointer;
+		}
+
+		/* 100% Image Width on Smaller Screens */
+		@media only screen and (max-width: 700px){
+		    .modal-content {
+		        width: 100%;
+		        height: auto;
+		    }
+		    #myImg{
+		    	width: auto;
+		    	height: 200px;
+		    }
+		    #back{
+		    	height: 40px;
+		    	border-radius: 20px;
+		    }
+		}
+	</style>
+</head>
+<body>
+	<div class="imageContainer">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51911385_1993874514058574_5990651351175004160_n.jpg?_nc_cat=109&_nc_ht=scontent.ffjr1-3.fna&oh=2ef178cd242f8db7b461fecca7fdbc76&oe=5CE5D01C">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51596687_1993874487391910_5578924468941619200_n.jpg?_nc_cat=108&_nc_ht=scontent.ffjr1-3.fna&oh=0e3dc55d6c6450c4cda9366616358218&oe=5CF55488">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/52001132_1993874660725226_6556667322835140608_n.jpg?_nc_cat=110&_nc_ht=scontent.ffjr1-4.fna&oh=03cbb54ee8eb82de9cfbd925ec543324&oe=5CF57802">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51527543_1993874474058578_2908134747102248960_n.jpg?_nc_cat=100&_nc_ht=scontent.ffjr1-1.fna&oh=a5076ac4cb1a8292333ffba4d26caf44&oe=5CFA28A9">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51481992_1993874360725256_2715073248432750592_n.jpg?_nc_cat=105&_nc_ht=scontent.ffjr1-1.fna&oh=02a4da0389e17cf544fb6a703f1c4112&oe=5D006A9F">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51760997_1993996294046396_5494805481455091712_n.jpg?_nc_cat=100&_nc_ht=scontent.ffjr1-1.fna&oh=1914ddc015a26f7822f5563b354be602&oe=5CF5DFAF">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51668688_1993874364058589_4095663745265565696_n.jpg?_nc_cat=104&_nc_ht=scontent.ffjr1-2.fna&oh=7c4eabf1e2fa95563cb0024c433466d1&oe=5CE5B350">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51616454_1993874770725215_1904174055624278016_n.jpg?_nc_cat=111&_nc_ht=scontent.ffjr1-1.fna&oh=a00595141d8061c018f2697a2af0c81a&oe=5CF67C53">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51424026_1993876294058396_174788409984811008_n.jpg?_nc_cat=108&_nc_ht=scontent.ffjr1-3.fna&oh=6919a7bd37fe3da27d8a71aafb2d177f&oe=5CE580A1">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51977513_1993877214058304_2654727841232453632_n.jpg?_nc_cat=101&_nc_ht=scontent.ffjr1-2.fna&oh=c570e9b949ef44527c830cb7024cefc3&oe=5CDFE5D5">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51915461_1993875177391841_8840091929908609024_n.jpg?_nc_cat=109&_nc_ht=scontent.ffjr1-3.fna&oh=58f14ce0c7aa335d1170a3d6b15149c8&oe=5CF8588D">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51861685_1993878497391509_6444292819250053120_n.jpg?_nc_cat=109&_nc_ht=scontent.ffjr1-3.fna&oh=820d340c043b0a2fc08f5be2388a0b4c&oe=5CFB2752">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51389232_1993877260724966_5590984573900029952_n.jpg?_nc_cat=104&_nc_ht=scontent.ffjr1-2.fna&oh=a6357c5c88d62911766b4466da234b7c&oe=5CF02257">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51403745_1993877747391584_6117023599854354432_n.jpg?_nc_cat=108&_nc_ht=scontent.ffjr1-3.fna&oh=7a01bd8a48598169a6dfaf325622045e&oe=5CEF3887">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/52020774_1993875310725161_3233698207351439360_n.jpg?_nc_cat=104&_nc_ht=scontent.ffjr1-2.fna&oh=eadcdda1231530d5517fa0d7732a5f7b&oe=5CF26467">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51541348_1993874677391891_3364298503441350656_n.jpg?_nc_cat=103&_nc_ht=scontent.ffjr1-3.fna&oh=147a2ea24454648ae8d5ea46e1a3a2ff&oe=5CFE859F">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/51906464_1993876444058381_6886529422577369088_n.jpg?_nc_cat=106&_nc_ht=scontent.ffjr1-4.fna&oh=7a140c3cd41bedf2c2c244646754e329&oe=5CB291B3">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51713715_1993877657391593_3501390234577272832_n.jpg?_nc_cat=101&_nc_ht=scontent.ffjr1-2.fna&oh=4a0123cb2e45c2285d01c007fa767ffd&oe=5CE1ADCF">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51508067_1993877694058256_5502188736395345920_n.jpg?_nc_cat=101&_nc_ht=scontent.ffjr1-2.fna&oh=b1895798f7550be0e518712e6d6abaef&oe=5CF2D00E">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51947626_1993878150724877_6224096069391745024_n.jpg?_nc_cat=101&_nc_ht=scontent.ffjr1-2.fna&oh=91cef9ca77741cf81afda310839c8080&oe=5CED34FE">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51322707_1993876807391678_8842878745208422400_n.jpg?_nc_cat=108&_nc_ht=scontent.ffjr1-3.fna&oh=ba130e59441734977b5cde78902da1d4&oe=5CF50C6F">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/51482004_1993878200724872_1989329113776652288_n.jpg?_nc_cat=104&_nc_ht=scontent.ffjr1-2.fna&oh=3ceeceb449dc0fb275f6ad7a1b571617&oe=5CFAE56D">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/51724413_1993875200725172_2078325015152951296_n.jpg?_nc_cat=107&_nc_ht=scontent.ffjr1-4.fna&oh=60ac3c54e2d08584333afd7ce52654ee&oe=5CF0924A">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/51165132_1993875647391794_4956929602942402560_n.jpg?_nc_cat=106&_nc_ht=scontent.ffjr1-4.fna&oh=13fc4d66236d5c9976da98a2408996cd&oe=5CB830B0">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51675428_1993877337391625_5391306411823071232_n.jpg?_nc_cat=105&_nc_ht=scontent.ffjr1-1.fna&oh=d4a83008bbc3bea29f77df7861f6e9f2&oe=5D005468">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51762759_1993876317391727_2789892944528670720_n.jpg?_nc_cat=103&_nc_ht=scontent.ffjr1-3.fna&oh=f5c4f81f66daa92c5d2f8b57e9a42a73&oe=5CE3726B">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-1.fna.fbcdn.net/v/t1.0-9/51623549_1993878457391513_5037499199390744576_n.jpg?_nc_cat=105&_nc_ht=scontent.ffjr1-1.fna&oh=db142929fe9cda8d7f3f3521d5d905f8&oe=5CF66CC0">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/51180442_1985708104875215_1719218371423109120_n.jpg?_nc_cat=106&_nc_ht=scontent.ffjr1-4.fna&oh=e31f9d1c746fe57648758c8937d8d2af&oe=5CE11A18">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-4.fna.fbcdn.net/v/t1.0-9/51794181_1986970964748929_1293608922233438208_n.jpg?_nc_cat=106&_nc_ht=scontent.ffjr1-4.fna&oh=5b8cb8741e00d516ac9ec7c0f648545b&oe=5D00F46D">
+		<img id="myImg" onclick="view(this)" src="https://scontent.ffjr1-3.fna.fbcdn.net/v/t1.0-9/51054756_1985328328246526_7248186396412739584_n.jpg?_nc_cat=109&_nc_ht=scontent.ffjr1-3.fna&oh=27525a6fb6fda142c65ba57e46b70e7a&oe=5CF3701E">
+	</div>
+	<div>
+		<a href="main.html"><img id="back" src="image/pre.png"></a>
+	</div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	  <span class="close">&times;</span>
+	  <img class="modal-content" id="img01">
+	</div>
+	<script type="text/javascript">
+		// Get the modal
+		var modal = document.getElementById('myModal');
+		var modalImg = document.getElementById("img01");
+		var backButton = document.getElementById("back");
+		var image = document.getElementById("myImg");
+
+
+		function view(h){
+			modal.style.display = "block";
+			//modalImg.src = "image/" + h.alt +".jpg";
+			modalImg.src = h.src;
+		}
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() { 
+		    modal.style.display = "none";
+		}
+		image.onhover = function(){
+			backButton.style.display = "none";
+		};
+
+
+	</script>
+</body>
+</html>
